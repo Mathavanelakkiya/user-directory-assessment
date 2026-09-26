@@ -40,3 +40,14 @@ tbody tr:last-child td { border-bottom: 0; }
 .link-danger { border: 0; background: transparent; color: #b02a2a; font-weight: 700; padding: 4px; }
 .link-danger:disabled { opacity: .5; cursor: not-allowed; }
 @media (max-width: 700px) { .topbar { padding: 0 5%; } .container { width: 92%; padding-top: 32px; } .page-heading { align-items: flex-start; } .form-card { grid-template-columns: 1fr; } .form-actions { grid-column: auto; } }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.company-logo {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+}
