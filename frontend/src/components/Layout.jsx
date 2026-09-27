@@ -1,17 +1,24 @@
 import { NavLink, Outlet } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import logo from "../../public/CFS.png"
 
 export default function Layout() {
+  const {
+    isAuthenticated,
+    isLoading,
+    loginWithRedirect,
+    logout,
+    user,
+  } = useAuth0()
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div className="app-shell">
       <header className="topbar">
-        <div className="brand">
-          <img
-            src="/CFS.png"
-            alt="Colonial First State"
-            className="company-logo"
-          />
-          <span>User Directory</span>
-        </div>
+         <img src={logo} alt="User Directory" className="brand-logo" />
 
         <nav>
           <NavLink
@@ -31,6 +38,38 @@ export default function Layout() {
           >
             Add
           </NavLink>
+
+          {!isAuthenticated && (
+            <button
+              type="button"
+              className="nav-link"
+              onClick={() => loginWithRedirect()}
+            >
+              Login
+            </button>
+          )}
+
+          {isAuthenticated && (
+            <>
+              <span className="nav-link">
+                {user?.name || user?.email || 'User'}
+              </span>
+
+              <button
+                type="button"
+                className="nav-link"
+                onClick={() =>
+                  logout({
+                    logoutParams: {
+                      returnTo: window.location.origin,
+                    },
+                  })
+                }
+              >
+                Logout
+              </button>
+            </>
+          )}
         </nav>
       </header>
 

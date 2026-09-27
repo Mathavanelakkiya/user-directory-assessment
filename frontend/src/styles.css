@@ -6,6 +6,12 @@ button { cursor: pointer; }
 .app-shell { min-height: 100vh; }
 .topbar { height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 7%; background: #fff; border-bottom: 1px solid #e8ebf1; position: sticky; top: 0; z-index: 5; }
 .brand { font-size: 20px; font-weight: 800; letter-spacing: -.3px; }
+.brand-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
 nav { display: flex; gap: 8px; }
 .nav-link { color: #5f6b7a; text-decoration: none; padding: 9px 14px; border-radius: 9px; font-weight: 600; }
 .nav-link:hover, .nav-link.active { color: #172033; background: #eef2f8; }

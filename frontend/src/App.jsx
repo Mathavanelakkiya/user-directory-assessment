@@ -8,7 +8,9 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Navigate to="/users" replace />} />
+
         <Route path="/users" element={<ListPage />} />
+
         <Route path="/add" element={<AddPage />} />
       </Route>
     </Routes>
